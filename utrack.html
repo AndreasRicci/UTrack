@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+
+    <title>UTrack: Track and analyze data that matters to you!</title>
+
+    <link rel="stylesheet" href="css/bootstrap.css"/>
+    <link rel="stylesheet" href="css/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="css/utrack.css"/>
+</head>
+
+<body>
+<div id="app_container" class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>UTrack
+                <small>Track and analyze data that matters to you!</small>
+            </h1>
+        </div>
+    </div>
+
+    <div class="row header-nav">
+        <div id="navBarContainer" class="col-md-12">
+            <ul id="navBar" class="nav nav-pills">
+                <li role="presentation"><a id="homeLink" href="#home">Home</a></li>
+                <li role="presentation"><a id="addDataLink" href="#add-data">Add some data</a></li>
+                <li role="presentation"><a id="analyzeDataLink" href="#analyze-data">Analyze your data</a></li>
+                <li role="presentation"><a id="removeDataLink" href="#remove-data">Modify your data</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="home_page" class="row page">
+        <div class="col-md-12">
+            <h3>Welcome to UTrack!</h3>
+
+            <p>UTrack allows you to track and analyze personal data quickly and easily.</p>
+
+            <h3>How to use UTrack</h3>
+
+            <p>UTrack is very simple to use:</p>
+            <ol>
+                <li>Add new data using the <i>Add some data</i> link above.</li>
+                <li>Analyze your data in various formats using the <i>Analyze your data</i> link.</li>
+                <li>Modify/remove existing data using the <i>Modify your data</i> link.</li>
+            </ol>
+
+            <h3>Why UTrack?</h3>
+
+            <p>UTrack can help answer questions like:</p>
+            <ul>
+                <li>Am I spending too little time studying?</li>
+                <li>How stressed am I while programming?</li>
+                <li>How happy am I while playing video games?</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="input_page" class="row page">
+        <div class="col-md-12">
+            <form id="addDataForm" novalidate>
+                <div id="formSuccess" class="row formMessage">
+                    <div class="col-md-12 alert alert-success" role="alert">
+                        <p>Awesome! Your new data point was added.</p>
+
+                        <p>You can stay here and add more, or click a different link above and do something cool with
+                            your data!</p>
+                    </div>
+                </div>
+                <div id="formError" class="row formMessage">
+                    <div class="col-md-12 alert alert-danger" role="alert">
+                        <p>Oops! Please fix any errors shown below and try again.</p>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="activityTypeSelectbox">Activity:</label>
+                    </div>
+                    <div class="col-md-10">
+                        <select id="activityTypeSelectbox" name="activityTypeSelectbox" class="form-control" autofocus
+                                required>
+                            <!-- Activity types go here -->
+                        </select>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label>Energy level:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <label class="radio-inline">
+                            <input type="radio" name="energyLevel" id="energyLevel1" value="1" required> 1 (Exhausted)
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="energyLevel" id="energyLevel2" value="2"> 2 (Tired)
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="energyLevel" id="energyLevel3" value="3"> 3 (Neutral)
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="energyLevel" id="energyLevel4" value="4"> 4 (Awake)
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="energyLevel" id="energyLevel5" value="5"> 5 (Very alert)
+                        </label>
+                    </div>
+                    <div id="energyLevelError" class="col-md-2 text-right errorMessage">
+                        <span class="label label-danger">Please select an option</span>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label>Stress level:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <label class="radio-inline">
+                            <input type="radio" name="stressLevel" id="stressLevel1" value="1" required> 1 (Very
+                            stressed)
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="stressLevel" id="stressLevel2" value="2"> 2 (Stressed)
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="stressLevel" id="stressLevel3" value="3"> 3 (Neutral)
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="stressLevel" id="stressLevel4" value="4"> 4 (Relaxed)
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="stressLevel" id="stressLevel5" value="5"> 5 (Very relaxed)
+                        </label>
+                    </div>
+                    <div id="stressLevelError" class="col-md-2 text-right errorMessage">
+                        <span class="label label-danger">Please select an option</span>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label>Happiness level:</label>
+                    </div>
+                    <div class="col-md-8">
+                        <label class="radio-inline">
+                            <input type="radio" name="happinessLevel" id="happinessLevel1" value="1" required> 1 (Very
+                            unhappy)
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="happinessLevel" id="happinessLevel2" value="2"> 2 (Unhappy)
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="happinessLevel" id="happinessLevel3" value="3"> 3 (Neutral)
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="happinessLevel" id="happinessLevel4" value="4"> 4 (Happy)
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="happinessLevel" id="happinessLevel5" value="5"> 5 (Very happy)
+                        </label>
+                    </div>
+                    <div id="happinessLevelError" class="col-md-2 text-right errorMessage">
+                        <span class="label label-danger">Please select an option</span>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col-md-2">
+                        <label for="timeSpentMinutes">Minutes spent:</label>
+                    </div>
+                    <div class="col-md-3">
+                        <input type="number" id="timeSpentMinutes" name="timeSpentMinutes" min="0" value="10" required>
+                    </div>
+                    <div id="timeSpentMinutesError" class="col-md-7 text-right errorMessage">
+                        <span class="label label-danger">Please enter a non-negative number.</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <small> Please note that all fields are required.</small>
+                </div>
+
+                <input id="addDataPointButton" type="submit" class="btn btn-success" value="Add this new data point">
+                <input id="resetButton" type="reset" class="btn btn-danger" value="Reset this form">
+
+                <div class="form-group">
+                    <small>Last data entry was on: <span id="lastDataEntryAt">Never</span></small>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="analysis_page" class="row page">
+        <div class="col-md-12">
+            <div class="row">
+                <div id="graphTabsContainer" class="col-md-12">
+                    <ul id="graphTabs" class="nav nav-tabs">
+                        <li role="presentation" class="active"><a id="tableSummaryTab"
+                                                                  href="#analyze-data-table-summary">Time Summary</a>
+                        </li>
+                        <li role="presentation"><a id="barGraphTab" href="#analyze-data-bar-graph">Health Summary</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row">
+                <div id="graphs" class="col-md-12">
+                    <!-- Template(s) for table summary graph -->
+                    <template id="table_summary_template">
+                        <div id="table_summary_container" class="graph show">
+                            <table class="table table-hover table-striped table_summary">
+                                <thead>
+                                <tr>
+                                    <th>Activity Name</th>
+                                    <th>Number of Entries</th>
+                                    <th>Total Time Spent
+                                        <small>(minutes)</small>
+                                    </th>
+                                    <th>Average Time Spent
+                                        <small>(minutes)</small>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <template id="table_summary_entry_template">
+                                    <tr class="table_summary_entry">
+                                        <td class="tableSummaryEntryActivityName"></td>
+                                        <td class="tableSummaryEntryTotalEntries"></td>
+                                        <td class="tableSummaryEntryTotalTimeSpent"></td>
+                                        <td class="tableSummaryEntryAverageTimeSpent"></td>
+                                    </tr>
+                                </template>
+
+                                <!-- Entries will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </template>
+
+                    <!-- Template(s) for bar graph -->
+                    <template id="bar_graph_template">
+                        <div id="bar_graph_container" class="graph">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <div class="panel panel-info">
+                                        <div class="panel-heading"><h3 class="panel-title">Show:</h3></div>
+                                        <div id="bar_graph_checkbox_container" class="panel-body">
+                                            <template id="bar_graph_checkbox_template">
+                                                <label class="customization_checkbox">
+                                                    <input type="checkbox" class="checkbox-inline" name="checkbox"
+                                                           value="true" checked>
+                                                </label>
+                                            </template>
+
+                                            <!-- Checkboxes will be loaded here -->
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-10">
+                                    <canvas id="bar_graph" height="400" width="600">
+                                        Error: Your browser does not support the HTML5 canvas!
+                                    </canvas>
+                                    <p>
+                                        <small>Note: higher averages are healthier and therefore better.</small>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+
+                    <!-- Graphs will be loaded here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="remove_data_page" class="row page">
+        <div class="col-md-12">
+            <div id="data_list_container">
+                <table class="table table-hover table-striped data_list">
+                    <thead>
+                    <tr>
+                        <th>Activity Name</th>
+                        <th>Energy Level</th>
+                        <th>Stress Level</th>
+                        <th>Happiness Level</th>
+                        <th>Time Spent
+                            <small>(minutes)</small>
+                        </th>
+                        <th>Added On &#9660;</th>
+                        <th>Options</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <!-- Entries will be loaded here -->
+
+                    <template id="data_list_entry_template">
+                        <tr class="data_list_entry">
+                            <td class="dataListEntryActivityName"></td>
+                            <td class="dataListEntryEnergyLevel"></td>
+                            <td class="dataListEntryStressLevel"></td>
+                            <td class="dataListEntryHappinessLevel"></td>
+                            <td class="dataListEntryTimeSpent"></td>
+                            <td class="dataListEntryAddedOn"></td>
+                            <td class="dataListEntryDelete">
+                                <button class="btn btn-danger btn-sm" type="button">Delete</button>
+                            </td>
+                        </tr>
+                    </template>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="unit_tests" class="row">
+        <div class="col-md-12">
+            <p>UTrack was designed and coded by Andreas Ricci in 2015.</p>
+            <!-- Keep this here so TAs can run your unit tests -->
+            <a href="unit_tests.html">Run Unit Tests</a>
+        </div>
+    </div>
+</div>
+
+<!-- JavaScript imports -->
+<script src="js/ext/underscore.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/model.js"></script>
+<script src="js/view.js"></script>
+<script src="js/utrack.js"></script>
+</body>
+</html>

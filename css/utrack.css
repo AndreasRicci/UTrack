@@ -1,0 +1,33 @@
+/* We want pages and graphs to be hidden by default, since we only show 1 at a time */
+.page, .graph, .errorMessage, .formMessage {
+    display: none;
+}
+
+.header-nav {
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #CFCFCF;
+}
+
+#unit_tests {
+    padding-top: 10px;
+    margin-top: 15px;
+    border-top: 2px solid #CFCFCF;
+}
+
+#graphTabsContainer {
+    margin-bottom: 10px;
+}
+
+.form-group .radio-inline {
+    width: 130px;
+}
+
+.customization_checkbox {
+    display: block;
+}
+
+/* From pvskisteak5 at http://stackoverflow.com/questions/15643037/how-do-i-change-the-hover-over-color-for-a-hover-over-table-in-bootstrap */
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: #CCE6FF;
+}
